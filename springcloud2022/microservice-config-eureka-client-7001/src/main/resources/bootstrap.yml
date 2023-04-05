@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: microservice-config-eureka-client #从GitHub上读取的资源名称，注意没有yml前缀
+      profile: dev #开发环境
+      label: main
+      uri: http://config-3344.com:3344 #本微服务启动后会先去找3344号服务通过SpringcloudConfig获取Github的服务地址

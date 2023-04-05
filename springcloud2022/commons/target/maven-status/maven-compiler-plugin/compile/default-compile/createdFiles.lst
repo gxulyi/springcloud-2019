@@ -1,0 +1,5 @@
+com\demo\entity\CommonResult.class
+com\demo\service\PaymentClientServiceFallBackFactory$1.class
+com\demo\service\PaymentClientServiceFallBackFactory.class
+com\demo\entity\Payment.class
+com\demo\service\PaymentClientService.class

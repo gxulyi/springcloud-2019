@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="provider-payment-hystrix-8001" />
+        <module name="microsevicecloud-config-3344" />
+        <module name="microservicecloud-config-client-3355" />
+        <module name="microservice-config-payment-client-8011" />
+        <module name="consumer-order" />
+        <module name="provider-payment" />
+        <module name="server-eureka-7001" />
+        <module name="server-eureka-7002" />
+        <module name="consumer-order-hystrix-dashboard" />
+        <module name="commons" />
+        <module name="server-eureka-7003" />
+        <module name="consumer-order-feign" />
+        <module name="microservice-config-eureka-client-7001" />
+        <module name="consumer-zuul-gateway" />
+        <module name="provider-payment-8003" />
+        <module name="provider-payment-8002" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="microsevice-config-payment-client-8011" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

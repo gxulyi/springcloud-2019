@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.provider.payment.dao.PaymentDao">
+    <!--定义接口方法对应的 SQL 语句-->
+    <select id="listById" resultType="Payment" parameterType="Integer">
+        SELECT id,serial,name,db_source,price FROM payment where id = #{id}
+    </select>
+    <insert id="create" parameterType="Payment">
+        insert into payment(serial,name,db_source,price) values(#{serial},#{name},#{db_source},#{price})
+    </insert>
+
+</mapper>

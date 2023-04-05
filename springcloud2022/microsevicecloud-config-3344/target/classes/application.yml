@@ -1,0 +1,23 @@
+server:
+  port: 3344
+
+
+spring:
+  application:
+    name: microsevicecloud-config
+  cloud:
+    config:
+      server:
+        git:
+          #uri: git@github.com:gxulyi/microsevicecloud-config.git #github上面的仓库名字
+          uri: https://github.com/gxulyi/microsevicecloud-config.git #http://config-3344.com:3344/main/application-test1.yml
+          username: gxulyi
+          password: honest720824
+      label: main
+
+
+
+
+
+
+

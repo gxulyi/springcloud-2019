@@ -1,0 +1,3 @@
+spring:
+  application:
+    name : microsevice-config-eureka-client

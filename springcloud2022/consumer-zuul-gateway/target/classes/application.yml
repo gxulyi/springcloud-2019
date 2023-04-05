@@ -1,0 +1,43 @@
+server:
+  port: 9527
+
+
+spring:
+  application:
+    name: consumer-zuul-gateway
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+     #defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: gateway-9527.com #自定义服务名称
+    prefer-ip-address: true # 访问路径可以显示ip.
+
+zuul:
+  prefix: /demo #设置统一的公共访问前缀
+  ignored-services: "*" #针对多个微服务进行过滤 --多个微服务的过滤
+  #ignored-services: provider-payment  #过滤掉真实的微服务名称，使其不能再通过该微服务名称进行访问  ignored-services: provider-payment  # 单个微服务过滤 ---过滤掉真实的微服务名称，使其不能再通过该微服务名称进行访问
+  routes:
+    myPayment.serviceId: provider-payment
+    myPayment.path: /myPayment/** #为了不暴露微服务名称，设置别名的方式防止微服务名暴露给客户端
+
+
+info:
+   app.name: springcloud2022
+   company.name: com.demo
+   build.artifactId: consumer-zuul-gateway
+   build.version: 1.0-SNAPSHOT
+#info:
+  #  app.name: micro-service-cloud
+  #  company.name: www.baidu.com
+  #  build.artifactId: consumer-zuul-gateway
+  #  build.version: 1.0-SNAPSHOT
+  #————————————————
+  #版权声明：本文为CSDN博主「嫒de洫天使」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+  #原文链接：https://blog.csdn.net/weixin_42686388/article/details/100539711#
+
+
+
+

@@ -1,0 +1,35 @@
+server:
+  port: 8012
+ #feign配置开启hystrix
+feign:
+  hystrix:
+    enabled: true
+eureka:
+  client: #客户端注册进eureka服务列表内
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+      #defaultZone: http://localhost:7001/eureka
+#spring:
+#  application:
+#    name: consumer-order
+
+  #mysql  5用的驱动是com.mysql.jdbc.Driver
+  #mysql  6用的驱动是com.mysql.cj.jdbc.Driver
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/payment?autoRreconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=GMT%2b8
+#    username: root
+#    password: root
+
+#mybatis-plus:
+#  configuration:
+#    #执行的sql语句，会打印在控制台上
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  global-config:
+#    db-config:
+#      #id增长策略
+#      id-type: ASSIGN_UUID
+#      #数据库表与模型的关系
+#    ##  table-prefix: tbl_
+

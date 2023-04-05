@@ -1,0 +1,69 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: provider-payment
+
+  #mysql  5用的驱动是com.mysql.jdbc.Driver
+  #mysql  6用的驱动是com.mysql.cj.jdbc.Driver
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/payment02?autoRreconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=GMT%2b8
+    username: root
+    password: root
+    dbcp2:
+      min-idle: 5 #数据库连接池的最小维持连接数
+      max-idle:
+      initial-size: 5 #初始化连接数
+      max-total: 5 #最大连接数
+      max-wait-millis: 200 # 等待连接获取的最大超时时间
+
+mybatis-plus:
+      configuration:
+        #执行的sql语句，会打印在控制台上
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+      global-config:
+        db-config:
+          #id增长策略 2.2.1 ASSIGN_ID策略
+          #可以在分布式的情况下使用，生成的是Long类型的数字，可以排序性能也高，但是生成的策略和服务器时间有关，如果修改了系统时间就有可能导致出现重复主键。所以实体类的字段类型是Long类型的，否则会抛异常。
+          #
+          #2.2.2 ASSIGN_UUID策略
+          #可以在分布式的情况下使用，而且能够保证唯一，但是生成的主键是32位的字符串，长度过长占用空间而且还不能排序，查询性能也慢。
+          #
+          #2.2.3 AUTO策略
+          #数据库ID自增,这种策略适合在数据库服务器只有1台的情况下使用,不可作为分布式ID使用
+          #
+          #2.2.4 INPUT
+          #不设置id生成策略,MP不自动生成，约等于NONE,所以这两种方式都需要用户手动设置，但是手动设置第一个问题是容易出现相同的ID造成主键冲突，为了保证主键不冲突就需要做很多判定，实现起来比较复杂
+          #————————————————
+          #版权声明：本文为CSDN博主「花果水莲」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+          #原文链接：https://blog.csdn.net/weixin_51725434/article/details/127950546
+          id-type: AUTO
+          #数据库表与模型的关系
+          ##table-prefix: tbl_
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+     #defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: provider-payment8002 #自定义服务名称
+    prefer-ip-address: true # 访问路径可以显示ip.
+info:
+   app.name: springcloud2022
+   company.name: com.demo
+   build.artifactId: ${project.artifactId}
+   build.version: ${project.version}
+#info:
+  #  app.name: micro-service-cloud
+  #  company.name: www.baidu.com
+  #  build.artifactId: ${project.artifactId}
+  #  build.version: ${project.version}
+  #————————————————
+  #版权声明：本文为CSDN博主「嫒de洫天使」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+  #原文链接：https://blog.csdn.net/weixin_42686388/article/details/100539711#
+
+
+
+
